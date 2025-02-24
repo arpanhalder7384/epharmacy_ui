@@ -28,7 +28,6 @@ export default function SortDropDown({ setSortType, setSortOrder }) {
         <TextField
           {...params}
           label="Sort By"
-
         />
       )}
     />
