@@ -10,8 +10,7 @@ export default function Layout() {
             <div className='overflow-hidden'>
                 <Outlet />
             </div>
-            <Footer/>
-
+            <Footer />
         </div>
     )
 }

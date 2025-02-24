@@ -1,43 +1,43 @@
-import React, { useEffect, useState} from 'react'
+import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router'
 
 export default function Login() {
-  const navigate=useNavigate();
+  const navigate = useNavigate();
 
-  const [emailId, setEmailId]=useState("")
-  const [password, setPassword]=useState("")
-  const [emailIdErr, setEmailIdErr]= useState("")
-  const [passwordErr, setPasswordErr]= useState("")
-  const [isValid, setIsValid]= useState(false)
+  const [emailId, setEmailId] = useState("")
+  const [password, setPassword] = useState("")
+  const [emailIdErr, setEmailIdErr] = useState("")
+  const [passwordErr, setPasswordErr] = useState("")
+  const [isValid, setIsValid] = useState(false)
 
-  useEffect(()=>{
-    if(!validEmailId(emailId)){
+  useEffect(() => {
+    if (!validEmailId(emailId)) {
       setEmailIdErr("Email id should be in valid format (example: example@gmail.com")
-    }else{
+    } else {
       setEmailIdErr("")
     }
-  },[emailId])
+  }, [emailId])
 
-  useEffect(()=>{
-    if(password.length<8){
+  useEffect(() => {
+    if (password.length < 8) {
       setPasswordErr("password should contain minimum 8 charater")
-    }else{
+    } else {
       setPasswordErr("")
     }
-  },[password])
+  }, [password])
 
-  useEffect(()=>{
-    if(emailIdErr==="" && passwordErr===""){
+  useEffect(() => {
+    if (emailIdErr === "" && passwordErr === "") {
       setIsValid(true)
-    }else{
+    } else {
       setIsValid(false)
     }
-  },[emailIdErr, passwordErr])
+  }, [emailIdErr, passwordErr])
 
   function validEmailId(email) {
     const pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return pattern.test(email);
-}
+  }
 
   return (
     <div className="h-screen w-full flex flex-row justify-evenly max-h-screen">
@@ -47,20 +47,20 @@ export default function Login() {
 
           <div className='justify-center items-center flex flex-col px-8'>
             <h1 class="animate-text mb-[4%] bg-gradient-to-tr from-blue-700 via-purple-500 to-orange-500 bg-clip-text text-5xl font-black text-transparent whitespace-nowrap">
-            Welcome to E-Pharmacy</h1>
+              Welcome to E-Pharmacy</h1>
           </div>
 
           <div className='flex mt-10  '>
             <form className="w-full">
               <div className="mb-5w-full">
                 <label for="email" className="mb-2 block text-sm font-medium text-gray-900">Email *</label>
-                <input type="email" onChange={(e)=>setEmailId(e.target.value)} value={emailId}  placeholder="Your email" id="email" className=" block w-[100%]  rounded-lg border-2 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500" required />
-                {emailIdErr!=="" && <label className='text-red-800'>{emailIdErr}</label>}
+                <input type="email" onChange={(e) => setEmailId(e.target.value)} value={emailId} placeholder="Your email" id="email" className=" block w-[100%]  rounded-lg border-2 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500" required />
+                {emailIdErr !== "" && <label className='text-red-800'>{emailIdErr}</label>}
               </div>
               <div className="w-full">
                 <label for="password" className="mb-2 block text-sm font-medium text-gray-900">Password *</label>
-                <input type="password" onChange={(e)=>setPassword(e.target.value)} value={password} placeholder="Password" id="password" className="block w-[100%] rounded-lg border-2 border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500" required />
-                {passwordErr!=="" && <label className='text-red-800'>{passwordErr}</label>}
+                <input type="password" onChange={(e) => setPassword(e.target.value)} value={password} placeholder="Password" id="password" className="block w-[100%] rounded-lg border-2 border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500" required />
+                {passwordErr !== "" && <label className='text-red-800'>{passwordErr}</label>}
 
               </div>
               <div className="m-5 flex justify-center">
@@ -70,9 +70,9 @@ export default function Login() {
                 <label for="remember" className="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Remember me</label>
               </div>
               <div className='flex flex-col justify-center w-full'>
-                <button type="submit" disabled={!isValid} 
-                className={`w-full h-12 rounded-lg bg-blue-300 px-5 py-2.5 text-center text-sm font-medium text-white ${isValid? "hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 sm:w-auto" :"cursor-not-allowed"} `}>
-                Log in</button>
+                <button type="submit" disabled={!isValid}
+                  className={`w-full h-12 rounded-lg bg-blue-300 px-5 py-2.5 text-center text-sm font-medium text-white ${isValid ? "hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 sm:w-auto" : "cursor-not-allowed"} `}>
+                  Log in</button>
               </div>
               <div class="inline-flex items-center justify-center w-full">
                 <hr class="w-[95%] h-0.5 my-8  border-0 rounded dark:bg-gray-700" />
@@ -99,7 +99,7 @@ export default function Login() {
               </div>
               <div class="flex gap-2 pt-5 justify-center items-center">
                 <p class="text-gray-600 text-sm">Don't have an account?</p><p class="text-gray-600 text-sm underline"
-                   onClick={()=>{
+                  onClick={() => {
                     navigate("../singup")
                   }}>Register here</p>
               </div>

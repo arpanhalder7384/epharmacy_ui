@@ -6,7 +6,7 @@ export default function About() {
 
       <main>
         <div className='mt-8 flex w-full justify-center'>
-         About Page
+          About Page
         </div>
       </main>
 

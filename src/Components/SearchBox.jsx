@@ -64,7 +64,7 @@ export default function FreeSoloCreateOption() {
           </li>
         );
       }}
-      sx={{ width: 300 }}
+      sx={{ width: 500 }}
       freeSolo
       renderInput={(params) => (
         <TextField {...params} label="Search Medicine" />

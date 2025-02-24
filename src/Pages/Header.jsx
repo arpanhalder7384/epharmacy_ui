@@ -3,6 +3,7 @@ import { NavLink, useNavigate } from "react-router-dom"
 import SearchBox from '../Components/SearchBox';
 import MenuSimple from '../Components/ProfileMene';
 import Cart from '../Components/Cart';
+import SortDropDown from '../Components/SortDropDown';
 export default function Header() {
   const navigate = useNavigate();
 
@@ -13,8 +14,14 @@ export default function Header() {
           <h1 class="animate-text bg-gradient-to-tr from-blue-700 via-purple-500 to-orange-500 bg-clip-text text-4xl font-black text-transparent whitespace-nowrap">
             E-Pharmacy</h1>
         </div>
-        <div>
-          <SearchBox />
+        <div className='flex '>
+          <div className='mx-4'>
+
+            <SearchBox />
+          </div>
+          <div className='w-28'>
+            <SortDropDown />
+          </div>
         </div>
 
         {/* <div className='flex flex-row justify-between '>
