@@ -2,7 +2,7 @@ import React from 'react'
 import { NavLink, useNavigate } from "react-router-dom"
 import SearchBox from '../Components/SearchBox';
 import MenuSimple from '../Components/ProfileMene';
-import Cart from '../Components/Cart';
+import CartIcon from '../Components/CartIcon';
 import SortDropDown from '../Components/SortDropDown';
 export default function Header() {
   const navigate = useNavigate();
@@ -47,7 +47,7 @@ export default function Header() {
         </button>
         <div className='flex'>
           <div className='mr-8'><MenuSimple /></div>
-          <div><Cart /></div>
+          <div><CartIcon /></div>
         </div>
 
 
