@@ -18,8 +18,8 @@ export default function MenuSimple() {
       <MenuButton>My account</MenuButton>
       <Menu slots={{ listbox: Listbox }}>
         <MenuItem onClick={createHandleMenuClick('Profile')}>Profile</MenuItem>
-        <MenuItem onClick={createHandleMenuClick('Language settings')}>
-          Language settings
+        <MenuItem onClick={createHandleMenuClick('My Orders')}>
+          My Orders
         </MenuItem>
         <MenuItem onClick={createHandleMenuClick('Log out')}>Log out</MenuItem>
       </Menu>

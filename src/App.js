@@ -7,6 +7,9 @@ import Home from './Pages/Home';
 import About from './Pages/About';
 import Courses from './Pages/Courses';
 import Layout from './Layout';
+import CartPage from './Pages/CartPage';
+import CheckoutPage from './Pages/CheckoutPage';
+import OrderPage from './Pages/OrderPage';
 
 
 function App() {
@@ -34,6 +37,18 @@ function App() {
         {
           path: "/courses",
           element: <Courses />
+        },
+        {
+          path: "/cart",
+          element: <CartPage />
+        },
+        {
+          path: "/checkout",
+          element: <CheckoutPage />
+        },
+        {
+          path: "/orders",
+          element: <OrderPage />
         }
       ]
     }

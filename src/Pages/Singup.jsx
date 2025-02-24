@@ -15,6 +15,7 @@ export default function SignUp() {
     pincode: "",
     state: "",
     country: "",
+    city: "",
   });
   const [showPassword, setShowPassword] = useState(false);
   const [errors, setErrors] = useState({});
@@ -71,6 +72,7 @@ export default function SignUp() {
     if (!formData.address.trim()) newErrors.address = "Address is required";
     if (!/^[0-9]{6}$/.test(formData.pincode)) newErrors.pincode = "Invalid pincode";
     if (!formData.state.trim()) newErrors.state = "State is required";
+    if (formData.city.trim().length <= 3) newErrors.city = "City is required";
     if (formData.country.trim().length <= 3) newErrors.country = "Country is required";
 
     setErrors(newErrors);
@@ -244,6 +246,14 @@ export default function SignUp() {
             onChange={(e) => setFormData({ ...formData, address: e.target.value })}
             error={!!errors.address}
             helperText={errors.address}
+          />
+          <TextField
+            label="City"
+            fullWidth
+            value={formData.city}
+            onChange={(e) => setFormData({ ...formData, city: e.target.value })}
+            error={!!errors.city}
+            helperText={errors.city}
           />
           <TextField
             label="Pincode"
