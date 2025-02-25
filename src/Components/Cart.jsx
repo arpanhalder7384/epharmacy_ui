@@ -15,6 +15,10 @@ const Cart = ({ cartItems, updateQuantity, removeItem }) => {
   const totalPrice = cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
   const navigate = useNavigate(); // Hook for navigation
 
+  const handleCheckout=()=>{
+    navigate("/checkout")
+  }
+
   return (
 
     <div style={{ maxWidth: "800px", margin: "auto", padding: "20px" }}>
@@ -74,7 +78,7 @@ const Cart = ({ cartItems, updateQuantity, removeItem }) => {
             </CardContent>
           </Card>
 
-          <Button variant="contained" color="primary" fullWidth sx={{ mt: 2 }}>
+          <Button variant="contained" color="primary" fullWidth sx={{ mt: 2 }} onClick={()=>handleCheckout()}>
             Proceed to Checkout
           </Button>
         </>

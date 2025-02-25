@@ -14,6 +14,7 @@ import HomeopathyPage from './Pages/HomeopathyPage';
 import ProfilePage from './Pages/ProfilePage';
 import NotFoundPage from './Pages/NotFoundPage';
 import MedicineDetails from './Pages/MedicineDetails';
+import OrderSuccess from './Pages/OrderSuccess';
 
 
 function App() {
@@ -65,6 +66,10 @@ function App() {
         {
           path: "/medicineDetails/:id",
           element: <MedicineDetails/>
+        },
+        {
+          path: "/orderSuccess",
+          element: <OrderSuccess/>
         },
         {
           path: "*",

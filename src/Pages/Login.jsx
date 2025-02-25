@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react'
+import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router'
+import { login } from '../redux/slices/authSlice';
 
 export default function Login() {
   const navigate = useNavigate();
@@ -9,6 +11,19 @@ export default function Login() {
   const [emailIdErr, setEmailIdErr] = useState("")
   const [passwordErr, setPasswordErr] = useState("")
   const [isValid, setIsValid] = useState(false)
+  const dispatch = useDispatch();
+
+  const handleLogin = (e) => {
+    e.preventDefault();
+
+    // Dummy User Authentication (Replace with API call)
+    if (emailId === "abc@gmail.com" && password === "Password123") {
+      dispatch(login({ emailId }));
+      navigate("/"); // Redirect to Home
+    } else {
+      alert("Invalid credentials!");
+    }
+  };
 
   useEffect(() => {
     if (!validEmailId(emailId)) {
@@ -71,6 +86,7 @@ export default function Login() {
               </div>
               <div className='flex flex-col justify-center w-full'>
                 <button type="submit" disabled={!isValid}
+                  onClick={handleLogin}
                   className={`w-full h-12 rounded-lg bg-blue-300 px-5 py-2.5 text-center text-sm font-medium text-white ${isValid ? "hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 sm:w-auto" : "cursor-not-allowed"} `}>
                   Log in</button>
               </div>

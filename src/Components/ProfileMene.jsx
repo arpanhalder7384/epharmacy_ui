@@ -6,14 +6,18 @@ import { MenuItem as BaseMenuItem, menuItemClasses } from '@mui/base/MenuItem';
 import { styled } from '@mui/system';
 import { Button } from '@mui/base/Button';
 import { useNavigate } from 'react-router-dom';
+import { logout } from "../redux/slices/authSlice";
+import { useDispatch } from 'react-redux';
 
 export default function MenuSimple() {
 
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const handleLogout = () => {
-
-  }
+    dispatch(logout());
+    navigate("/login");
+  };
 
   return (
     <Dropdown>

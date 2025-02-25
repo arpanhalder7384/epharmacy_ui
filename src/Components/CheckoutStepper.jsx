@@ -9,10 +9,13 @@ import {
   Card,
   CardContent,
 } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 
 const steps = ["Delivery Address", "Payment Information"];
 
 const CheckoutStepper = () => {
+  const navigate = useNavigate(); // Hook for navigation
+
   const [activeStep, setActiveStep] = useState(0);
   const [formData, setFormData] = useState({
     address: "",
@@ -66,14 +69,17 @@ const CheckoutStepper = () => {
 
   // Submit Checkout
   const handleSubmit = () => {
-    if(!validatePayment()){
+    if (!validatePayment()) {
       return
     }
-    alert("Order Placed Successfully!");
+    navigate("/orderSuccess");
   };
 
   return (
     <Card sx={{ maxWidth: 600, margin: "auto", padding: 3 }}>
+      <Button variant="contained" color="secondary" onClick={() => navigate("../cart")}>
+        ← Back to Cart
+      </Button>
       <CardContent>
         <Typography variant="h4" align="center" gutterBottom>
           Checkout

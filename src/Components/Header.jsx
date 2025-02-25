@@ -19,9 +19,9 @@ export default function Header() {
 
             <SearchBox />
           </div>
-          <div className='w-28'>
+          {/* <div className='w-28'>
             <SortDropDown />
-          </div>
+          </div> */}
         </div>
 
         {/* <div className='flex flex-row justify-between '>
