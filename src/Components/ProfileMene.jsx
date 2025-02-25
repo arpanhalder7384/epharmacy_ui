@@ -5,23 +5,28 @@ import { MenuButton as BaseMenuButton } from '@mui/base/MenuButton';
 import { MenuItem as BaseMenuItem, menuItemClasses } from '@mui/base/MenuItem';
 import { styled } from '@mui/system';
 import { Button } from '@mui/base/Button';
+import { useNavigate } from 'react-router-dom';
 
 export default function MenuSimple() {
-  const createHandleMenuClick = (menuItem) => {
-    return () => {
-      console.log(`Clicked on ${menuItem}`);
-    };
-  };
+
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+
+  }
 
   return (
     <Dropdown>
       <MenuButton>My account</MenuButton>
       <Menu slots={{ listbox: Listbox }}>
-        <MenuItem onClick={createHandleMenuClick('Profile')}>Profile</MenuItem>
-        <MenuItem onClick={createHandleMenuClick('My Orders')}>
-          My Orders
+        <MenuItem >
+          <p onClick={() => navigate("/profile")}>Profile</p></MenuItem>
+        <MenuItem >
+          <p onClick={() => navigate("/orders")}>My Orders</p>
         </MenuItem>
-        <MenuItem onClick={createHandleMenuClick('Log out')}>Log out</MenuItem>
+        <MenuItem >
+          <p onClick={() => handleLogout()}> Log out</p>
+        </MenuItem>
       </Menu>
     </Dropdown>
   );
@@ -67,9 +72,8 @@ const Listbox = styled('ul')(
   background: ${theme.palette.mode === 'dark' ? grey[900] : '#fff'};
   border: 1px solid ${theme.palette.mode === 'dark' ? grey[700] : grey[200]};
   color: ${theme.palette.mode === 'dark' ? grey[300] : grey[900]};
-  box-shadow: 0 4px 6px ${
-    theme.palette.mode === 'dark' ? 'rgba(0,0,0, 0.50)' : 'rgba(0,0,0, 0.05)'
-  };
+  box-shadow: 0 4px 6px ${theme.palette.mode === 'dark' ? 'rgba(0,0,0, 0.50)' : 'rgba(0,0,0, 0.05)'
+    };
   z-index: 1;
   `,
 );

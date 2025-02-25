@@ -8,13 +8,19 @@ import {
   Grid,
 } from "@mui/material";
 import { Delete, Add, Remove } from "@mui/icons-material";
+import { useNavigate } from "react-router-dom";
 
 const Cart = ({ cartItems, updateQuantity, removeItem }) => {
   // Calculate total price
   const totalPrice = cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
+  const navigate = useNavigate(); // Hook for navigation
 
   return (
+
     <div style={{ maxWidth: "800px", margin: "auto", padding: "20px" }}>
+    <Button variant="contained" color="secondary" onClick={() => navigate("/")}>
+            ← Back to Home
+          </Button>
       <Typography variant="h4" align="center" gutterBottom>
         🛒 Your Cart
       </Typography>

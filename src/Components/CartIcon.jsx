@@ -3,6 +3,7 @@ import { styled } from '@mui/material/styles';
 import IconButton from '@mui/material/IconButton';
 import Badge, { badgeClasses } from '@mui/material/Badge';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import { useNavigate } from 'react-router-dom';
 
 const CartBadge = styled(Badge)`
   & .${badgeClasses.badge} {
@@ -12,10 +13,16 @@ const CartBadge = styled(Badge)`
 `;
 
 export default function CartIcon() {
+  const navigate = useNavigate(); // Hook for navigation
+
+  const handlecartNavigation=()=>{
+    console.log("cart clicked")
+    navigate("/cart")
+  }
   return (
-    <IconButton>
+    <IconButton onClick={()=>handlecartNavigation()}>
       <ShoppingCartIcon fontSize="small" />
-      <CartBadge badgeContent={2} color="primary" overlap="circular" />
+      <CartBadge badgeContent={2} color="primary" overlap="circular"  />
     </IconButton>
   );
 }

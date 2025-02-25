@@ -1,9 +1,9 @@
 import React from 'react'
 import { NavLink, useNavigate } from "react-router-dom"
-import SearchBox from '../Components/SearchBox';
-import MenuSimple from '../Components/ProfileMene';
-import CartIcon from '../Components/CartIcon';
-import SortDropDown from '../Components/SortDropDown';
+import SearchBox from './SearchBox';
+import MenuSimple from './ProfileMene';
+import CartIcon from './CartIcon';
+import SortDropDown from './SortDropDown';
 export default function Header() {
   const navigate = useNavigate();
 
