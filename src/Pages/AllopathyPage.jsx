@@ -42,9 +42,16 @@ const AllopathyPage = () => {
       });
   }, [currentPage, sortOrder, sortType]);
 
-  const handlePageClick = ({ selected }) => {
-    setCurrentPage(selected);
-  };
+    //   useEffect(() => {
+    //     const fetchMedicines = async () => {
+    //       try {
+    //         const response = await apiService.getMedicines(); // Fetch all medicines
+    //         const alopathyMedicines = response.data.filter(med => med.type === "Alopathy");
+    //         setMedicines(alopathyMedicines);
+    //       } catch (error) {
+    //         console.error("Error fetching medicines:", error);
+    //       }
+    //     };
 
   const viewDetails = (medicineId) => {
     navigate(`/medicineDetails/${medicineId}`)
@@ -111,25 +118,50 @@ const AllopathyPage = () => {
         ))}
       </div>
 
-      <div className="flex justify-center mt-6">
-        <ReactPaginate
-          previousLabel={"← Previous"}
-          nextLabel={"Next →"}
-          breakLabel={"..."}
-          pageCount={pageCount}
-          marginPagesDisplayed={1}
-          pageRangeDisplayed={2}
-          onPageChange={handlePageClick}
-          containerClassName={"flex space-x-2"}
-          activeClassName={"bg-blue-500 text-white px-3 py-1 rounded"}
-          pageClassName={"border px-3 py-1 rounded"}
-          previousClassName={"border px-3 py-1 rounded"}
-          nextClassName={"border px-3 py-1 rounded"}
-          disabledClassName={"text-gray-400"}
-        />
-      </div>
-    </div>
-  );
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {currentItems.map((medicine) => (
+                    <Card key={medicine.id} className="shadow-lg">
+                        <CardMedia component="img" height="140" image={medicine.image} alt={medicine.name} />
+                        <CardContent>
+                            <Typography variant="h6">{medicine.name}</Typography>
+                            <Typography variant="body2" color="textSecondary">{medicine.category}</Typography>
+                            <Typography variant="h6" className="text-green-600">{medicine.price}</Typography>
+                            <Button
+                                fullWidth
+                                variant="contained"
+                                color="primary"
+                                className="m-4"
+                                onClick={() => navigate(`/medicineDetails/${medicine.id}`)}
+                            >
+                                Show Details
+                            </Button>
+                            <Button variant="contained" fullWidth className="mt-2" color="success">
+                                Add to Cart
+                            </Button>
+                        </CardContent>
+                    </Card>
+                ))}
+            </div>
+
+            <div className="flex justify-center mt-6">
+                <ReactPaginate
+                    previousLabel={"← Previous"}
+                    nextLabel={"Next →"}
+                    breakLabel={"..."}
+                    pageCount={pageCount}
+                    marginPagesDisplayed={1}
+                    pageRangeDisplayed={2}
+                    onPageChange={handlePageClick}
+                    containerClassName={"flex space-x-2"}
+                    activeClassName={"bg-blue-500 text-white px-3 py-1 rounded"}
+                    pageClassName={"border px-3 py-1 rounded"}
+                    previousClassName={"border px-3 py-1 rounded"}
+                    nextClassName={"border px-3 py-1 rounded"}
+                    disabledClassName={"text-gray-400"}
+                />
+            </div>
+        </div>
+    );
 };
 
 export default AllopathyPage;
