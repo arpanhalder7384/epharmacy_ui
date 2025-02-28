@@ -4,6 +4,7 @@ import ReactPaginate from "react-paginate";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { hideLoader, showLoader } from "../redux/slices/loaderSlice";
+import { fetchMedicines } from "../services/medicineService";
 
 const allopathyMedicines = [
     { id: 1, name: "Paracetamol", category: "Pain Relief", price: "₹50", image: "https://via.placeholder.com/150" },
@@ -36,6 +37,14 @@ const AllopathyPage = () => {
     //     };
 
     //     fetchMedicines();
+    //   }, []);
+
+    // useEffect(() => {
+    //     fetchMedicines(1, 10, "name", "asc") // Page 1, Size 10, Sort by Name (A-Z)
+    //       .then((response) => {
+    //         setMedicines(response.data);
+    //       })
+    //       .catch((error) => console.error("Error fetching medicines:", error));
     //   }, []);
 
     useEffect(() => {
