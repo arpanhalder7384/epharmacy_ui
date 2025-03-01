@@ -29,6 +29,9 @@ const savedCards = [
 const CheckoutStepper = () => {
   const navigate = useNavigate();
   const [activeStep, setActiveStep] = useState(0);
+  const [useNewCard, setUseNewCard] = useState(false);
+  const [selectedCard, setSelectedCard] = useState("");
+  
   const [formData, setFormData] = useState({
     address: "",
     city: "",
@@ -65,23 +68,25 @@ const CheckoutStepper = () => {
     }
   }, [cartItems])
 
-  // Handle Input Change
+  // Dummy saved cards data (Replace with API later)
+  const savedCards = [
+    { id: "card1", number: "**** **** **** 1234", expiry: "12/26" },
+    { id: "card2", number: "**** **** **** 5678", expiry: "08/25" },
+  ];
+
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  // Validate Delivery Address Step
   const validateAddress = () => {
     let tempErrors = {};
     if (!formData.address.trim()) tempErrors.address = "Address is required";
     if (!formData.city.trim()) tempErrors.city = "City is required";
     if (!/^\d{6}$/.test(formData.pincode)) tempErrors.pincode = "Pincode must be 6 digits";
-
     setErrors(tempErrors);
     return Object.keys(tempErrors).length === 0;
   };
 
-  // Validate Payment Step
   const validatePayment = () => {
     let tempErrors = {};
     if (!/^\d{16}$/.test(formData.cardNumber)) tempErrors.cardNumber = "Card number must be 16 digits";
@@ -138,7 +143,6 @@ const CheckoutStepper = () => {
     setActiveStep((prevStep) => prevStep + 1);
   };
 
-  // Move to Previous Step
   const handleBack = () => {
     setActiveStep((prevStep) => prevStep - 1);
   };
