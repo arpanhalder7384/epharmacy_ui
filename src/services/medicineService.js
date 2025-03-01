@@ -1,4 +1,4 @@
-import api from "./api";
+import api from "./apiService";
 
 // Fetch All Medicines (With Pagination & Sorting)
 export const fetchMedicines = async (page, size, sortBy, order) => {

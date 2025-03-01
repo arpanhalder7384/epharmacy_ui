@@ -5,24 +5,26 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { hideLoader, showLoader } from "../redux/slices/loaderSlice";
 import { fetchMedicines } from "../services/medicineService";
+import { useToast } from "./../utils/ToastProvider";
 
-const allopathyMedicines = [
-    { id: 1, name: "Paracetamol", category: "Pain Relief", price: "₹50", image: "https://via.placeholder.com/150" },
-    { id: 2, name: "Amoxicillin", category: "Antibiotics", price: "₹120", image: "https://via.placeholder.com/150" },
-    { id: 3, name: "Ibuprofen", category: "Pain Relief", price: "₹80", image: "https://via.placeholder.com/150" },
-    { id: 4, name: "Ciprofloxacin", category: "Antibiotic", price: "₹150", image: "https://via.placeholder.com/150" },
-    { id: 5, name: "Metformin", category: "Diabetes", price: "₹90", image: "https://via.placeholder.com/150" },
-    { id: 6, name: "Cetirizine", category: "Allergy", price: "₹60", image: "https://via.placeholder.com/150" },
-];
+// const allopathyMedicines = [
+//     { id: 1, name: "Paracetamol", category: "Pain Relief", price: "₹50", image: "https://via.placeholder.com/150" },
+//     { id: 2, name: "Amoxicillin", category: "Antibiotics", price: "₹120", image: "https://via.placeholder.com/150" },
+//     { id: 3, name: "Ibuprofen", category: "Pain Relief", price: "₹80", image: "https://via.placeholder.com/150" },
+//     { id: 4, name: "Ciprofloxacin", category: "Antibiotic", price: "₹150", image: "https://via.placeholder.com/150" },
+//     { id: 5, name: "Metformin", category: "Diabetes", price: "₹90", image: "https://via.placeholder.com/150" },
+//     { id: 6, name: "Cetirizine", category: "Allergy", price: "₹60", image: "https://via.placeholder.com/150" },
+// ];
 
 const ITEMS_PER_PAGE = 4;
 
 const AllopathyPage = () => {
+    const showToast = useToast();
     const [currentPage, setCurrentPage] = useState(0);
     const navigate = useNavigate(); // Hook for navigation
     const dispatch = useDispatch();
 
-    const [medicines, setMedicines] = useState(allopathyMedicines);
+    const [medicines, setMedicines] = useState([]);
     const [sortType, setSortType] = useState(""); // Store selected sort type
 
     //   useEffect(() => {
@@ -39,13 +41,17 @@ const AllopathyPage = () => {
     //     fetchMedicines();
     //   }, []);
 
-    // useEffect(() => {
-    //     fetchMedicines(1, 10, "name", "asc") // Page 1, Size 10, Sort by Name (A-Z)
-    //       .then((response) => {
-    //         setMedicines(response.data);
-    //       })
-    //       .catch((error) => console.error("Error fetching medicines:", error));
-    //   }, []);
+    useEffect(() => {
+        fetchMedicines(1, 10, "name", "asc") // Page 1, Size 10, Sort by Name (A-Z)
+            .then((response) => {
+                setMedicines(response.data);
+                showToast("Medicine added to cart!", "success")
+            })
+            .catch((error) => {
+                showToast("Medicine added to cart!", "error")
+                console.error("Error fetching medicines:", error)
+            });
+    }, []);
 
     useEffect(() => {
         dispatch(showLoader());
