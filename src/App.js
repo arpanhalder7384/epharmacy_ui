@@ -15,6 +15,7 @@ import ProfilePage from './Pages/ProfilePage';
 import NotFoundPage from './Pages/NotFoundPage';
 import MedicineDetails from './Pages/MedicineDetails';
 import OrderSuccess from './Pages/OrderSuccess';
+import ChangePassword from './Pages/ChangePassword';
 
 
 function App() {
@@ -70,6 +71,10 @@ function App() {
         {
           path: "/orderSuccess",
           element: <OrderSuccess/>
+        },
+        {
+          path: "/changePassword",
+          element: <ChangePassword/>
         },
         {
           path: "*",
