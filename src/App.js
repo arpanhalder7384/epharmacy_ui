@@ -87,6 +87,10 @@ function App() {
           element: <ChangePassword/>
         },
         {
+          path: "/changePassword",
+          element: <ChangePassword/>
+        },
+        {
           path: "*",
           element: <NotFoundPage/>
         }
