@@ -1,0 +1,23 @@
+import axios from "axios";
+
+// Base API URL
+const API_BASE_URL = "http://localhost:9001"; // Replace with your actual API URL
+
+const api = axios.create({
+  baseURL: API_BASE_URL,
+  headers: {
+    "Content-Type": "application/json",
+  }
+});
+
+api.interceptors.request.use((config) => {
+  const token = localStorage.getItem("authToken"); // Fetch token from local storage
+  if (token) {
+    config.headers.Authorization = `Bearer ${token}`;
+  }
+  return config;
+});
+
+
+
+export default api;
