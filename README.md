@@ -57,7 +57,7 @@ This project is open-source and free to use.
 
 ---
 ### 📩 Contact
-For any queries or contributions, reach out at `your-email@example.com`.
+For any queries or contributions, reach out at `arpanhalder7384@gmail.com`.
 
 Happy Coding! 🚀
 

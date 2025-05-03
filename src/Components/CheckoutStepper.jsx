@@ -227,19 +227,6 @@ const CheckoutStepper = () => {
     // }
   };
 
-  // Handle selecting a saved card
-  const handleCardSelect = (card) => {
-    if (selectedCard === card.id) {
-      setSelectedCard(null);
-      setUseNewCard(false);
-      setFormData({ ...formData, cardNumber: "", expiryDate: "", cvv: "" });
-    } else {
-      setSelectedCard(card.id);
-      setUseNewCard(false);
-      setFormData({ ...formData, cardNumber: card.cardNumber, expiryDate: card.expiry });
-    }
-  };
-
   return (
     <Card sx={{ maxWidth: 600, margin: "auto", padding: 3 }}>
       <Button variant="contained" color="secondary" onClick={() => navigate("../cart")}>

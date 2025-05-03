@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router'
 import { loginUser } from '../services/userService';
 import { hideLoader, showLoader } from '../redux/slices/loaderSlice';
@@ -19,19 +18,6 @@ export default function Login() {
   const [emailIdErr, setEmailIdErr] = useState("")
   const [passwordErr, setPasswordErr] = useState("")
   const [isValid, setIsValid] = useState(false)
-  const dispatch = useDispatch();
-
-  const handleLogin = (e) => {
-    e.preventDefault();
-
-    // Dummy User Authentication (Replace with API call)
-    if (emailId === "abc@gmail.com" && password === "Password123") {
-      dispatch(login({ emailId }));
-      navigate("/"); // Redirect to Home
-    } else {
-      alert("Invalid credentials!");
-    }
-  };
 
   useEffect(() => {
     if (!validEmailId(emailId)) {

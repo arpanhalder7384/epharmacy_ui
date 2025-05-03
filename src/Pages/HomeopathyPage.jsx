@@ -86,22 +86,6 @@ const HomeopathyPage = () => {
                 <SortDropDown setSortType={setSortType} setSortOrder={setSortOrder} />
             </section>
 
-            {/* Sort Dropdown */}
-            <div className="mb-4">
-                <label className="mr-2">Sort by:</label>
-                <select
-                    className="border p-2 rounded"
-                    value={sortType}
-                    onChange={(e) => handleSort(e.target.value)}
-                >
-                    <option value="">Select</option>
-                    <option value="price-high-low">Price: High to Low</option>
-                    <option value="price-low-high">Price: Low to High</option>
-                    <option value="name-a-z">Name: A to Z</option>
-                    <option value="name-z-a">Name: Z to A</option>
-                </select>
-            </div>
-
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {homeopathyMedicines.map((medicine) => (
                     <Card key={medicine.id} className="shadow-lg">
