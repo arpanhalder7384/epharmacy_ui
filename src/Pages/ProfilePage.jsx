@@ -3,7 +3,7 @@ import { TextField, Button, Card, CardContent, Typography, Grid, Avatar, Divider
 import { Edit, Save, Cancel } from "@mui/icons-material";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { useToast } from "./../utils/ToastProvider";
+import { useToast } from "../utils/ToastProvider";
 import { updateUserProfile } from '../services/userService';
 import { hideLoader, showLoader } from '../redux/slices/loaderSlice';
 import { setUserData } from "../redux/slices/userSlice";

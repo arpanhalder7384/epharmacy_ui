@@ -16,7 +16,7 @@ import {
 import { useNavigate } from "react-router-dom";
 import { fetchCards } from "../services/paymentService";
 import { placeOrder } from "../services/orderService";
-import { useToast } from "./../utils/ToastProvider";
+import { useToast } from "../utils/ToastProvider";
 
 const steps = ["Delivery Address", "Payment Information"];
 

@@ -13,7 +13,7 @@ import {
 } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { useToast } from "./../utils/ToastProvider";
+import { useToast } from "../utils/ToastProvider";
 import { fetchOrders } from "../services/orderService";
 import { hideLoader, showLoader } from '../redux/slices/loaderSlice';
 import { logout } from "../redux/slices/userSlice";

@@ -6,7 +6,7 @@ import { hideLoader, showLoader } from "../redux/slices/loaderSlice";
 import { useDispatch } from "react-redux";
 import { fetchCart, updateCartQuantity } from "../services/cartService";
 import { logout } from "../redux/slices/userSlice";
-import { useToast } from "./../utils/ToastProvider";
+import { useToast } from "../utils/ToastProvider";
 import { updateItemCount } from "../redux/slices/cartSlice";
 
 const CartPage = () => {

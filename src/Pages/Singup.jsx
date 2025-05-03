@@ -6,7 +6,7 @@ import { registerUser } from "../services/userService";
 import { useDispatch } from "react-redux";
 import { setUserData, setLogin } from "../redux/slices/userSlice";
 import { useNavigate } from "react-router-dom";
-import { useToast } from "./../utils/ToastProvider";
+import { useToast } from "../utils/ToastProvider";
 
 
 export default function SignUp() {

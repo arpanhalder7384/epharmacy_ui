@@ -7,7 +7,7 @@ import { fetchMedicines } from "../services/medicineService";
 import { hideLoader, showLoader } from "../redux/slices/loaderSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { addToCart } from "../services/cartService";
-import { useToast } from "./../utils/ToastProvider";
+import { useToast } from "../utils/ToastProvider";
 import { updateItemCount } from "../redux/slices/cartSlice";
 
 

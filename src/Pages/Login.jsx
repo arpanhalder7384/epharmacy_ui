@@ -4,7 +4,7 @@ import { loginUser } from '../services/userService';
 import { hideLoader, showLoader } from '../redux/slices/loaderSlice';
 import { setLogin, setUserData } from '../redux/slices/userSlice';
 import { useDispatch } from 'react-redux';
-import { useToast } from "./../utils/ToastProvider";
+import { useToast } from "../utils/ToastProvider";
 import { fetchCart } from '../services/cartService';
 import { updateItemCount } from '../redux/slices/cartSlice';
 
